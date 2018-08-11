@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour {
     {
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
+        
+        //BUG: Player moves slightly with every shot.
 
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -57,6 +59,13 @@ public class PlayerController : MonoBehaviour {
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
 
             transform.LookAt(pointToLook);
+            
+            //BUG: Player rotates around X and Z axis despite them being frozen in the contraints. Possible fix - manually freeze those rotations in code.
+            //
+            //transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+            //var targetRotation = Quaternion.LookRotation(pointToLook - transform.position);
+            //transform.rotation = targetRotation;
+
         }
 
         #region Controller stuff
@@ -102,6 +111,5 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate () {
 
         rBody.velocity = moveVelocity;
-		
-	}
+    }
 }
