@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour {
         {
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-
             transform.LookAt(pointToLook);
             
             //BUG: Player rotates around X and Z axis despite them being frozen in the contraints. Possible fix - manually freeze those rotations in code.
@@ -105,6 +104,8 @@ public class PlayerController : MonoBehaviour {
         {
             isCasting = false;
         }
+
+
     }
 
     // Update is called once per frame
