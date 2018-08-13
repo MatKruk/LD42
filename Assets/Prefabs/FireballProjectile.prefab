@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152938555520624}
   - component: {fileID: 114683103831611424}
+  - component: {fileID: 65302198240117040}
   m_Layer: 0
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -67,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945976354070360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.07, y: 0.699, z: 2.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.676, y: 0.54, z: 0.545}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.5}
   m_Children:
   - {fileID: 4894472587980228}
   - {fileID: 4987358158577774}
@@ -101,6 +102,18 @@ Transform:
   m_Father: {fileID: 4152938555520624}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65302198240117040
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945976354070360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108111796963916686
 Light:
   m_ObjectHideFlags: 1
@@ -150,6 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  projDamage: 1
+  lifeTime: 3
 --- !u!198 &198378365777611734
 ParticleSystem:
   m_ObjectHideFlags: 1

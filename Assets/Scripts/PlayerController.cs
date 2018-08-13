@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
         {
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-            transform.LookAt(pointToLook);
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             
             //BUG: Player rotates around X and Z axis despite them being frozen in the contraints. Possible fix - manually freeze those rotations in code.
             //
@@ -81,6 +81,15 @@ public class PlayerController : MonoBehaviour {
 
     private void PlayerCombat()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            isCasting = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isCasting = false;
+        }
+
         if(!isCasting)
         {
             timeBetweenCasts = 0;
@@ -95,17 +104,6 @@ public class PlayerController : MonoBehaviour {
                 newProjectile.speed = projTravelSpeed;
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            isCasting = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isCasting = false;
-        }
-
-
     }
 
     // Update is called once per frame
